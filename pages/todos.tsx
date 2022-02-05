@@ -9,7 +9,7 @@ import {
   StyledInput,
   StyledTextArea,
   StyledTrashIcon
-} from './styles'
+} from '../styles/styles'
 
 interface Props {
   todoTitle: string

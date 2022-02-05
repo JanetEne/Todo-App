@@ -9,7 +9,7 @@ import {
   StyledInputWrap,
   StyledTextArea,
   StyledTodoContainer
-} from './styles'
+} from '../styles/styles'
 import Todos from './todos'
 
 const TodoForm = () => {

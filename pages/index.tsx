@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 import TodoForm from './form'
-import { StyledHeader } from './styles'
+import { StyledHeader } from '../styles/styles'
 
 export interface ITodo {
   todoTitle: string
