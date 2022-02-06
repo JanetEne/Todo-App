@@ -13,12 +13,15 @@ Technologies used
 ## Getting Started
 
 - Clone the repo
-  $ git clone [https://github.com/JanetEne/Todo-App.git]
+
+  $ git clone https://github.com/JanetEne/Todo-App.git
 
 - Install dependencies by running
+
   $ npm install or yarn add
 
 - To start the application, run
+
   $ npm run dev or yarn run dev
 
 This runs the app in the development mode.
