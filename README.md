@@ -1,6 +1,8 @@
-### Note Keep
+## Note Keep
 
 Simple, free, and easy to use! Take quick notes on the fly, make a to do list for the day and write down things you need to remember.
+
+[`A live Demo can be seen here.`](https://server-note-keeper.netlify.app/)
 
 This project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
