@@ -20,12 +20,16 @@ export const StyledInputWrap = styled.div`
 `
 
 export const StyledInputContainer = styled.form`
-  width: 30%;
+  width: 400px;
   height: auto;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 20px;
   position: relative;
+
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
 `
 
 export const StyledInput = styled.input`
@@ -95,17 +99,33 @@ export const StyledContainer = styled.div`
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 20px;
-  margin-left: 30px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+
+  @media only screen and (max-width: 600px) {
+    margin-left: 0;
+  }
 `
 
 export const StyledTodoContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   margin-top: 50px;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: auto auto;
+  }
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
 `
 
 export const StyledIconContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-top: 15px;
 `
 
 export const StyledEditIcon = styled.div`

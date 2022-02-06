@@ -6,6 +6,7 @@ import { StyledHeader } from '../styles/styles'
 export interface ITodo {
   todoTitle: string
   todoDetail: string
+  id: number
 }
 
 const Home = () => {

@@ -32,7 +32,7 @@ const TodoForm = () => {
 
   const addTodo = () => {
     if (todoDetail !== '' && todoTitle !== '') {
-      setTodos([...todos, { todoDetail, todoTitle }])
+      setTodos([...todos, { todoDetail, todoTitle, id: new Date().getTime() }])
       setTodoDetail('')
       setTodoTitle('')
     } else {
@@ -85,7 +85,7 @@ const TodoForm = () => {
             <Todos
               todoTitle={todo.todoTitle}
               todoDetail={todo.todoDetail}
-              key={index}
+              key={todo.id}
               todos={todos}
               setTodo={setTodos}
               todo={todo}

@@ -25,12 +25,16 @@ const Todos: FC<Props> = ({ todoTitle, todoDetail, todos, setTodo, todo }) => {
   const [updatedTododetails, setUpdatedTododetails] = useState<string>('')
   const [showSaveButton, setShowSaveButton] = useState(false)
 
-  const deleteTodo = () => {
-    const filteredArray = todos.filter((item) => item !== todo)
-    toast.success('Note Trashed', {
-      duration: 3000
-    })
-    setTodo(filteredArray)
+  const deleteTodo = (id) => {
+    const getTodo = todos.find((item, index) => item.id === id)
+
+    if (getTodo) {
+      const filteredArray = todos.filter((item: ITodo) => item.id !== id)
+      toast.success('Note Trashed', {
+        duration: 3000
+      })
+      setTodo(filteredArray)
+    }
   }
 
   const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,19 +45,23 @@ const Todos: FC<Props> = ({ todoTitle, todoDetail, todos, setTodo, todo }) => {
     setUpdatedTododetails(e.target.value)
   }
 
-  const editTodo = () => {
-    const getTodo = todos.filter((item) => {
-      if (item === todo) {
-        todo.todoDetail = updatedTododetails || todo.todoDetail
-        todo.todoTitle = updatedTodotitle || todo.todoTitle
-        toast.success('Todo edited', {
-          duration: 3000
-        })
-        setShowSaveButton(false)
-      }
-      return todo
-    })
-    setTodo(getTodo)
+  const editTodo = (id) => {
+    const getTodo = todos.find((item) => item === todo)
+
+    if (getTodo) {
+      const editedTodo = todos.filter((item) => {
+        if (item.id === id) {
+          todo.todoDetail = updatedTododetails || todo.todoDetail
+          todo.todoTitle = updatedTodotitle || todo.todoTitle
+          toast.success('Todo edited', {
+            duration: 3000
+          })
+          setShowSaveButton(false)
+        }
+        return todo
+      })
+      setTodo(editedTodo)
+    }
   }
 
   const ref: RefObject<HTMLDivElement> = createRef()
@@ -81,7 +89,7 @@ const Todos: FC<Props> = ({ todoTitle, todoDetail, todos, setTodo, todo }) => {
 
       <StyledIconContainer>
         {showSaveButton ? (
-          <StyledButton onClick={editTodo}>Save</StyledButton>
+          <StyledButton onClick={() => editTodo(todo.id)}>Save</StyledButton>
         ) : (
           <>
             <StyledEditIcon>
@@ -93,7 +101,7 @@ const Todos: FC<Props> = ({ todoTitle, todoDetail, todos, setTodo, todo }) => {
             <StyledTrashIcon>
               <img
                 src="https://img.icons8.com/material-outlined/24/000000/trash--v1.png"
-                onClick={() => deleteTodo()}
+                onClick={() => deleteTodo(todo.id)}
               />
             </StyledTrashIcon>{' '}
           </>
